@@ -9,10 +9,7 @@ import jakarta.persistence.Persistence;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * MySQL implementation of the Repository interface using JPA/Hibernate.
- * This repository uses the persistence unit defined in persistence.xml.
- */
+/*** MySQL implementation of the Repository interface using JPA/Hibernate */
 public class MySQLVehicleRepository implements Repository<VehicleEntity> {
 
     private final EntityManagerFactory emf;
@@ -83,9 +80,8 @@ public class MySQLVehicleRepository implements Repository<VehicleEntity> {
         }
     }
 
-    /**
-     * Ensures MySQL connections (EntityManagerFactory) are released when the app closes.
-     */
+    /*** Ensures MySQL connections (EntityManagerFactory) are released when the app closes.*/
+
     public void close() {
         if (emf.isOpen()) {
             emf.close();

@@ -8,11 +8,7 @@ import com.test.repositories.Repository;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Service layer that contains all business logic related to vehicles.
- * It depends ONLY on the Repository interface (NOT on MySQL or InMemory).
- * This guarantees Inversion of Control and Dependency Injection.
- */
+/*** Service layer that contains all business logic related to vehicles.*/
 public class VehicleService {
 
     private final Repository<VehicleEntity> repository;
@@ -22,7 +18,7 @@ public class VehicleService {
         this.repository = repository;
     }
 
-    // ========== CREATE ==========
+    // CREATE
     public CarEntity createCar(String make, String model, int year, int numDoors) {
         CarEntity car = new CarEntity(make, model, year, numDoors);
         return (CarEntity) repository.save(car);
@@ -33,7 +29,7 @@ public class VehicleService {
         return (MotorcycleEntity) repository.save(m);
     }
 
-    // ========== READ ==========
+    // READ
     public List<VehicleEntity> getAllVehicles() {
         return repository.findAll();
     }
@@ -42,12 +38,12 @@ public class VehicleService {
         return repository.findById(id);
     }
 
-    // ========== UPDATE ==========
+    // UPDATE
     public VehicleEntity updateVehicle(VehicleEntity updated) {
         return repository.save(updated); // merge handles update
     }
 
-    // ========== DELETE ==========
+    // DELETE
     public void deleteVehicle(Long id) {
         repository.deleteById(id);
     }

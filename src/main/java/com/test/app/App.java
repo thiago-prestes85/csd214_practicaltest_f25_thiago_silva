@@ -9,10 +9,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-/**
- * Console-based UI for the Vehicle Inventory Management System.
- * Handles all user interaction and delegates business logic to VehicleService.
- */
+/*** Console-based UI for the Vehicle Inventory Management System.*/
+
 public class App {
 
     private final VehicleService service;
@@ -52,7 +50,7 @@ public class App {
         System.out.println("5. Quit");
     }
 
-    // ========== ADD ==========
+    // ADD
     private void addVehicle() {
         System.out.println("\nAdd a: ");
         System.out.println("1. Car");
@@ -77,7 +75,7 @@ public class App {
         }
     }
 
-    // ========== LIST ==========
+    // LIST
     private void listVehicles() {
         List<VehicleEntity> list = service.getAllVehicles();
 
@@ -102,7 +100,7 @@ public class App {
                 v.getId(), type, v.getMake(), v.getModel(), v.getYear(), extra);
     }
 
-    // ========== UPDATE ==========
+    // UPDATE
     private void updateVehicle() {
         Long id = (long) readInt("Enter vehicle ID to update: ");
         Optional<VehicleEntity> opt = service.findVehicleById(id);
@@ -134,14 +132,14 @@ public class App {
         System.out.println("Vehicle updated successfully.");
     }
 
-    // ========== DELETE ==========
+    // DELETE
     private void deleteVehicle() {
         Long id = (long) readInt("Enter vehicle ID to delete: ");
         service.deleteVehicle(id);
         System.out.println("Vehicle deleted (if it existed).");
     }
 
-    // ========== INPUT HELPERS ==========
+    // INPUT HELPERS
     private int readInt(String msg) {
         System.out.print(msg);
         while (!scanner.hasNextInt()) {

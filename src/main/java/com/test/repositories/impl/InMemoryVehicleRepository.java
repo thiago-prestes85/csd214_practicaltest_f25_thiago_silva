@@ -5,11 +5,8 @@ import com.test.repositories.Repository;
 
 import java.util.*;
 
-/**
- * In-memory implementation of the Repository interface.
- * Stores all VehicleEntity objects inside a HashMap.
- * This repository does NOT use JPA or any database.
- */
+/*** In-memory implementation of the Repository interface */
+
 public class InMemoryVehicleRepository implements Repository<VehicleEntity> {
 
     private final Map<Long, VehicleEntity> store = new HashMap<>();

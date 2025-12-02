@@ -7,11 +7,7 @@ import com.test.services.VehicleService;
 
 import java.util.Scanner;
 
-/**
- * Composition Root of the entire application.
- * This class decides which Repository implementation to use
- * and injects all dependencies manually (pure DI, no frameworks).
- */
+/** Composition Root of the entire application */
 public class Main {
 
     public static void main(String[] args) {
